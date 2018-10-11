@@ -1,9 +1,10 @@
 'use strict'
 
 function displayResults(response) {
+    $('.search-results').empty();
     console.log("Displaying results")
     response.forEach(repo => {
-        $('.results').append(`<a href="${repo.svn_url}"><p>${repo.name}</p></a>`)
+        $('.search-results').append(`<li><a href="${repo.svn_url}">${repo.name}</a></li>`)
     });
 
 }
@@ -27,7 +28,6 @@ function watchForm() {
     $('form').submit(event => {
         const handle = $('#handle').val();
         event.preventDefault();
-        $('.results').empty();
         getRepositories(handle);
     })
 }
