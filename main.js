@@ -1,7 +1,5 @@
 'use strict'
 
-const searchUrl = 'https://api.github.com/users/';
-
 function displayResults(response) {
     console.log("Displaying results")
     response.forEach(repo => {
@@ -11,8 +9,8 @@ function displayResults(response) {
 }
 
 function getRepositories(handle) {
-    const url = searchUrl + handle + '/repos';
-    console.log("Fetching User repositories")
+    const url = `https://api.github.com/users/${handle}/repos`;
+    console.log("Fetching user repositories")
     fetch(url)
         .then(response => {
             if (response.ok) {
